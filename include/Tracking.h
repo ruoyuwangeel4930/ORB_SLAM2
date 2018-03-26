@@ -67,7 +67,7 @@ public:
     void SetViewer(Viewer* pViewer);
 
     // Load new settings
-    // The focal lenght should be similar or scale prediction will fail when projecting points
+    // The focal length should be similar or scale prediction will fail when projecting points
     // TODO: Modify MapPoint::PredictScale to take into account focal lenght
     void ChangeCalibration(const string &strSettingPath);
 
