@@ -118,10 +118,7 @@ int main(int argc, char **argv)
             usleep((T-ttrack)*1e6);
     }
 
-    // Stop all threads
-    SLAM.Shutdown();
-
-    // Tracking time statistics
+    // save output first
     sort(vTimesTrack.begin(),vTimesTrack.end());
     float totaltime = 0;
     for(int ni=0; ni<nImages; ni++)
@@ -135,6 +132,25 @@ int main(int argc, char **argv)
     // Save camera trajectory
     SLAM.SaveTrajectoryTUM("CameraTrajectory.txt");
     SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");   
+
+
+    // Stop all threads
+    SLAM.Shutdown();
+
+    // // Tracking time statistics
+    // sort(vTimesTrack.begin(),vTimesTrack.end());
+    // float totaltime = 0;
+    // for(int ni=0; ni<nImages; ni++)
+    // {
+    //     totaltime+=vTimesTrack[ni];
+    // }
+    // cout << "-------" << endl << endl;
+    // cout << "median tracking time: " << vTimesTrack[nImages/2] << endl;
+    // cout << "mean tracking time: " << totaltime/nImages << endl;
+
+    // // Save camera trajectory
+    // SLAM.SaveTrajectoryTUM("CameraTrajectory.txt");
+    // SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");   
 
     return 0;
 }
